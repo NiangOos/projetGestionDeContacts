@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>Mini Projet Gestion de Contact</h1>
+
+    <a href="#" routerLink="/contact/create/" class="btn btn-success">Create New Contact</a>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>NOM</th>
+            <th>Prenom</th>
+            <th>Adresse</th>
+            <th>email</th>
+            <th>Téléphone</th>
+            <th>Descriptions</th>
+            <th width="220px">Action</th>
+        </tr>
+        <tr *ngFor="let contact of contacts">
+            <td>{{ contact.id }}</td>
+            <td>{{ contact.Nom }}</td>
+            <td>{{ contact.Prenom }}</td>
+            <td>{{ contact.Adresse }}</td>
+            <td>{{ contact.Email }}</td>
+            <td>{{ contact.Telephone }}</td>
+            <td>{{ contact.Description }}</td>
+            <td>
+                <a href="#" [routerLink]="['/contact/', contact.id, 'view']" class="btn btn-info">View</a>
+                <a href="#" [routerLink]="['/contact/', contact.id, 'edit']" class="btn btn-primary">Edit</a>
+                <button type="button" (click)="deleteContact(contact.id)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
